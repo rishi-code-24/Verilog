@@ -1,0 +1,34 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 15.12.2025 22:08:50
+// Design Name: 
+// Module Name: Full_adder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Full_adder(
+    input a,
+    input b,
+    input c,
+    output sum,
+    output carry
+    );
+    
+    assign sum = a^b^c;
+    assign carry = (a&b)| (b&c)|(a&b);
+    
+endmodule
