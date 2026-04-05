@@ -1,0 +1,87 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2025 00:00:00
+// Design Name: 
+// Module Name: Mux_4_1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Mux_4_1(
+    input i0,
+    input i1,
+    input i2,
+    input i3,
+    input s1,
+    input s2,
+    output reg y
+    );
+ always@(*)
+     case({s1,s2})
+      
+     2'b00 : y = i0;
+     2'b01 : y = i1;
+     2'b10 : y = i2;
+     2'b11 : y = i3;
+      
+   endcase      
+endmodule
+
+
+
+
+
+module Mux_4_1(
+    input i0,
+    input i1,
+    input i2,
+    input i3,
+    input s1,
+    input s2,
+    output reg y
+    );
+    
+ always@(*)
+     begin
+      if (s1==0 && s2==0)
+         y = i0;
+      else if (s1==0 && s2==1)
+         y = i1;
+      else if (s1==1 && s2==0)
+         y = i2;
+      else 
+         y = i3;
+    end      
+endmodule
+
+
+
+
+module Mux_4_1(
+    input i0,
+    input i1,
+    input i2,
+    input i3,
+    input  s1,
+    input  s2,
+    output  y
+    );
+  
+assign y = s1 ? i1:i0;
+assign y = s2 ? i3:i2;
+
+endmodule
+
