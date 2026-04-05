@@ -1,0 +1,41 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2025 02:40:09
+// Design Name: 
+// Module Name: De_coder_2_4
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module De_coder_2_4(
+    input a,
+    input b,
+    output reg y0,
+    output reg y1,
+    output reg y2,
+    output reg y3
+    );
+   always@(*)
+     begin
+      case ({a,b})
+       2'b00 : y0 = 4'b1000;
+       2'b01 : y1 = 4'b0100;
+       2'b10 : y2 = 4'b0010;
+       2'b11 : y3 = 4'b0001;
+        default;
+      endcase
+     end
+endmodule
