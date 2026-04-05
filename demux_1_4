@@ -1,0 +1,81 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2025 01:22:50
+// Design Name: 
+// Module Name: De_mux_1_4
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module De_mux_1_4(
+    input in,
+    input [1:0]sel,
+    output reg y0,
+    output reg y1,
+    output reg y2,
+    output reg y3
+    );
+  always@(*)
+    begin
+     case(sel)
+        2'b00 : y0 = in;
+        2'b01 : y1 = in;
+        2'b10 : y2 = in;
+        2'b11 : y3 = in; 
+     endcase
+   end  
+endmodule
+
+
+
+
+module De_mux_1_4(
+    input in,
+    input [1:0]sel,
+    output reg y0,
+    output reg y1,
+    output reg y2,
+    output reg y3
+    );
+  always@(*)
+    begin
+     if (sel[0]==0 && sel[1]==0)
+          y0 = in;
+     else if (sel[0]==0 && sel[1]==1)
+          y1 = in;
+     else if (sel[0]==1 && sel[1]==0)
+          y2 = in;     
+     else
+        y3 = in;  
+   end  
+endmodule
+
+
+
+module De_mux_1_4(
+    input in,
+    input [1:0]sel,
+    output  y0,
+    output  y1,
+    output  y2,
+    output  y3
+    );
+       assign  y0 = in & ~sel[1] & ~sel[0];    // when sel = 00
+       assign  y1 = in & ~sel[1] &  sel[0];    // when sel = 01
+       assign  y2 = in &  sel[1] & ~sel[0];    // when sel = 10
+       assign  y3 = in &  sel[1] &  sel[0];    // when sel = 11
+
+endmodule
