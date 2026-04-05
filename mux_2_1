@@ -1,0 +1,69 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 15.12.2025 23:43:54
+// Design Name: 
+// Module Name: Mux_2_1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+module Mux_2_1(
+    input i0,
+    input i1,
+    input  sel,
+    output reg y
+    );
+    
+always@(*)
+    begin 
+     if (sel==1)
+         y = i1;
+     else
+        y = i0;
+  end      
+endmodule
+
+
+
+
+module Mux_2_1(
+    input i0,
+    input i1,
+    input  sel,
+    output  y
+    );
+     assign y = (sel)? i1 : i0;     
+endmodule
+
+
+
+module Mux_2_1(
+    input i0,
+    input i1,
+    input  sel,
+    output reg y
+    );
+  always@(*)
+  case(sel)
+  
+  1'b0 : y = i0;
+  1'b1 : y = i1;
+  
+  endcase
+endmodule 
+  
+  
