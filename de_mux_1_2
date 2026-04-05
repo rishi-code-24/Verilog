@@ -1,0 +1,70 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2025 01:04:24
+// Design Name: 
+// Module Name: De_mux_1_2
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+/*
+module De_mux_1_2(
+    input in,
+    input sel,
+    output y0,
+    output y1
+    );
+ 
+assign y0 = in & ~sel;
+assign y1 = in & sel; 
+
+endmodule
+*/
+
+
+/*
+module De_mux_1_2(
+    input in,
+    input sel,
+    output reg y0,
+    output reg y1
+    );
+ 
+always@(*)
+   begin
+      if (sel==0)
+         y0 = in;
+      else
+         y1 = in;  
+   end
+ 
+endmodule
+*/
+
+module De_mux_1_2(
+    input in,
+    input sel,
+    output reg y0,
+    output reg y1
+    );
+ 
+always@(*)
+  begin
+    case(sel)
+      1'b0 : y0 = in;
+      1'b1 : y1 = in;
+    endcase
+ end
+endmodule
