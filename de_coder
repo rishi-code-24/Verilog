@@ -1,0 +1,51 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2025 01:49:19
+// Design Name: 
+// Module Name: De_coder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module De_coder(
+    input a,
+    output y0,
+    output y1
+    );
+    assign y0 = ~a;
+    assign y1 = a;
+    
+endmodule
+
+
+
+
+module De_coder(
+    input a,
+    output reg y0,
+    output reg y1
+    );
+ always@(*)
+   begin 
+   y0 = 0;
+   y1 = 0; 
+     if (a==0)
+       y0 = a;
+     else
+       y1 = a;
+    end 
+endmodule
+
